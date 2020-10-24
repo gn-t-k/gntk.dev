@@ -19,7 +19,6 @@ const Layout = styled(Component)`
   max-width: 960px;
   padding: 0 1.1rem 1.45rem;
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
 `;
 
 export default Layout;
