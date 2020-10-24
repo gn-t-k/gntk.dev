@@ -1,0 +1,6 @@
+build/
+public/
+**/coveage/
+**/node_modules/
+**/*.min.js
+*.config.js
