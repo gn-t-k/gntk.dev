@@ -103,6 +103,7 @@ const PostLink = styled(Component)`
   @media screen and (min-width: 576px) {
     & > a > div {
       width: 280px;
+      height: 280px;
       margin-right: 24px;
     }
 
