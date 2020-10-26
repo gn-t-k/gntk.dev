@@ -97,6 +97,11 @@ const Post = styled(Component)`
   & > main > section > div.post-body > h4 {
     margin-top: 25px;
   }
+
+  & > main > section > div.post-body > p > code {
+    color: #2d2d2d;
+    background: #ccc;
+  }
 `;
 
 export default Post;
