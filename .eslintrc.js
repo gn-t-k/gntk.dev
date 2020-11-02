@@ -77,6 +77,12 @@ module.exports = {
                 explicitSpread: "ignore"
             }
         ],
+        "import/no-extraneous-dependencies": [
+            "error", {
+                devDependencies: ["**/*.stories.tsx"],
+                peerDependencies: false
+            }
+        ],
     },
     overrides: [
         {
