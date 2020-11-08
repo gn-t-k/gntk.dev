@@ -22,7 +22,8 @@
     "lint:conflict": "eslint --print-confg /eslintrc.js | eslint-config-prettier-check",
     "postinstall": "npx typesync",
     "storybook": "start-storybook -p 6006 --no-dll",
-    "build-storybook": "build-storybook --no-dll"
+    "build-storybook": "build-storybook --no-dll",
+    "chromatic": "npx chromatic --project-token 2sz46rxk2yk"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.11.1",
@@ -62,6 +63,7 @@
     "@typescript-eslint/parser": "2.34.0",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^10.0.0",
+    "chromatic": "^5.3.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-import": "^2.22.0",

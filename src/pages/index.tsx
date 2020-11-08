@@ -1,20 +1,9 @@
 import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
-import Layout from '../components/layout';
-import Hero from '../components/hero';
-import PostLink from '../components/post-link';
-import SEO from '../components/seo';
+import Home from '../templates/home';
 
-const Home: FC<PageProps<GatsbyTypes.allContentfulPostQuery>> = ({ data }) => {
-  return (
-    <Layout>
-      <SEO title="gntk.dev" description="技術的な学びや日常の気付きのメモなどを書くブログです" />
-      <Hero />
-      {data.allContentfulPost.edges.map((edge) => (
-        <PostLink key={edge.node.slug} post={edge.node} />
-      ))}
-    </Layout>
-  );
+const Index: FC<PageProps<GatsbyTypes.allContentfulPostQuery>> = ({ data }) => {
+  return <Home data={data} />;
 };
 
 export const query = graphql`
@@ -40,4 +29,4 @@ export const query = graphql`
   }
 `;
 
-export default Home;
+export default Index;

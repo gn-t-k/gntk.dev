@@ -1,12 +1,12 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import Header, { Props } from '../components/header';
+import Footer, { Props } from '../components/footer';
 
 export default {
-  title: 'Header',
-  component: Header,
+  title: 'Footer',
+  component: Footer,
 } as Meta;
 
-const Template: Story<Props> = () => <Header />;
+const Template: Story<Props> = () => <Footer />;
 
 export const Default = Template.bind({});
