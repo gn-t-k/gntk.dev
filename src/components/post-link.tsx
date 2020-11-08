@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-type Props = {
+export type Props = {
   className?: string;
   post: Pick<GatsbyTypes.ContentfulPost, 'title' | 'slug' | 'updatedAt'> & {
     readonly image: GatsbyTypes.Maybe<
