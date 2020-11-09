@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import Footer from './footer';
 
-type Props = {
+export type Props = {
   className?: string;
 };
 

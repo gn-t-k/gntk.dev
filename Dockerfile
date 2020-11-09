@@ -4,4 +4,4 @@ WORKDIR /usr/src/app
 
 RUN npm install -g gatsby-cli
 
-EXPOSE 8000
+EXPOSE 8000 6006

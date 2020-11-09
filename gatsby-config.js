@@ -4,9 +4,9 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Dev Blog',
-    description: 'Gatsbyで作成したブログサイトです。',
-    author: 'Engineer X',
+    title: 'gntk.dev',
+    description: '技術的な学びや日常の気付きのメモなどを書くブログです',
+    author: 'Murakami Gentoku',
   },
   plugins: [
     `gatsby-plugin-styled-components`,
