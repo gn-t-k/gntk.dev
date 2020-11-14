@@ -11,12 +11,19 @@ export default {
 const Template: Story<Props> = ({ data }) => <Home data={data} />;
 
 export const Default = Template.bind({});
+const post = PostLinkStories?.Default?.args?.post;
 Default.args = {
   data: {
     allContentfulPost: {
       edges: [
         {
-          node: { ...PostLinkStories.Default.args.post },
+          node: {
+            title: post?.title,
+            updatedAt: post?.updatedAt,
+            image: post?.image,
+            description: post?.description,
+            slug: post?.slug,
+          },
         },
       ],
     },
