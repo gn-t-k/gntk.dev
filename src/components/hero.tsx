@@ -9,7 +9,7 @@ const Component: FC<Props> = ({ className }) => {
   return (
     <div className={className}>
       <span role="img" aria-label="icon">
-        💡
+        🐤
       </span>
       <h1>gntk.dev</h1>
       <p>技術的な学びや日常の気付きのメモなどを書くブログです</p>
