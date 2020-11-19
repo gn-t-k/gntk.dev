@@ -255,6 +255,7 @@ enum ContentfulAssetFieldsEnum {
   title = 'title',
   description = 'description',
   node_locale = 'node_locale',
+  sys___type = 'sys.type',
   sys___revision = 'sys.revision',
   fixed___base64 = 'fixed.base64',
   fixed___tracedSVG = 'fixed.tracedSVG',
@@ -368,10 +369,12 @@ type ContentfulAssetSortInput = {
 };
 
 type ContentfulAssetSys = {
+  readonly type: Maybe<Scalars['String']>;
   readonly revision: Maybe<Scalars['Int']>;
 };
 
 type ContentfulAssetSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
   readonly revision: Maybe<IntQueryOperatorInput>;
 };
 
@@ -383,6 +386,7 @@ type ContentfulContentType = Node & {
   readonly name: Maybe<Scalars['String']>;
   readonly displayField: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulContentTypeSys>;
 };
 
 type ContentfulContentTypeConnection = {
@@ -501,7 +505,8 @@ enum ContentfulContentTypeFieldsEnum {
   internal___type = 'internal.type',
   name = 'name',
   displayField = 'displayField',
-  description = 'description'
+  description = 'description',
+  sys___type = 'sys.type'
 }
 
 type ContentfulContentTypeFilterInput = {
@@ -512,6 +517,7 @@ type ContentfulContentTypeFilterInput = {
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly displayField: Maybe<StringQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
+  readonly sys: Maybe<ContentfulContentTypeSysFilterInput>;
 };
 
 type ContentfulContentTypeGroupConnection = {
@@ -526,6 +532,14 @@ type ContentfulContentTypeGroupConnection = {
 type ContentfulContentTypeSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<ContentfulContentTypeFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type ContentfulContentTypeSys = {
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulContentTypeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
 };
 
 type ContentfulFixed = {
@@ -637,6 +651,7 @@ type contentfulPostBodyTextNode = Node & {
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
   readonly body: Maybe<Scalars['String']>;
+  readonly sys: Maybe<contentfulPostBodyTextNodeSys>;
   readonly childMarkdownRemark: Maybe<MarkdownRemark>;
 };
 
@@ -755,6 +770,7 @@ enum contentfulPostBodyTextNodeFieldsEnum {
   internal___owner = 'internal.owner',
   internal___type = 'internal.type',
   body = 'body',
+  sys___type = 'sys.type',
   childMarkdownRemark___id = 'childMarkdownRemark.id',
   childMarkdownRemark___frontmatter___title = 'childMarkdownRemark.frontmatter.title',
   childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
@@ -816,6 +832,7 @@ type contentfulPostBodyTextNodeFilterInput = {
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
   readonly body: Maybe<StringQueryOperatorInput>;
+  readonly sys: Maybe<contentfulPostBodyTextNodeSysFilterInput>;
   readonly childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
@@ -831,6 +848,14 @@ type contentfulPostBodyTextNodeGroupConnection = {
 type contentfulPostBodyTextNodeSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<contentfulPostBodyTextNodeFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type contentfulPostBodyTextNodeSys = {
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type contentfulPostBodyTextNodeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
 };
 
 type ContentfulPostConnection = {
@@ -860,6 +885,7 @@ type contentfulPostDescriptionTextNode = Node & {
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
   readonly description: Maybe<Scalars['String']>;
+  readonly sys: Maybe<contentfulPostDescriptionTextNodeSys>;
   readonly childMarkdownRemark: Maybe<MarkdownRemark>;
 };
 
@@ -978,6 +1004,7 @@ enum contentfulPostDescriptionTextNodeFieldsEnum {
   internal___owner = 'internal.owner',
   internal___type = 'internal.type',
   description = 'description',
+  sys___type = 'sys.type',
   childMarkdownRemark___id = 'childMarkdownRemark.id',
   childMarkdownRemark___frontmatter___title = 'childMarkdownRemark.frontmatter.title',
   childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
@@ -1039,6 +1066,7 @@ type contentfulPostDescriptionTextNodeFilterInput = {
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
+  readonly sys: Maybe<contentfulPostDescriptionTextNodeSysFilterInput>;
   readonly childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
@@ -1054,6 +1082,14 @@ type contentfulPostDescriptionTextNodeGroupConnection = {
 type contentfulPostDescriptionTextNodeSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<contentfulPostDescriptionTextNodeFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type contentfulPostDescriptionTextNodeSys = {
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type contentfulPostDescriptionTextNodeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
 };
 
 type ContentfulPostEdge = {
@@ -1200,6 +1236,7 @@ enum ContentfulPostFieldsEnum {
   image___title = 'image.title',
   image___description = 'image.description',
   image___node_locale = 'image.node_locale',
+  image___sys___type = 'image.sys.type',
   image___sys___revision = 'image.sys.revision',
   image___fixed___base64 = 'image.fixed.base64',
   image___fixed___tracedSVG = 'image.fixed.tracedSVG',
@@ -1280,6 +1317,7 @@ enum ContentfulPostFieldsEnum {
   description___internal___owner = 'description.internal.owner',
   description___internal___type = 'description.internal.type',
   description___description = 'description.description',
+  description___sys___type = 'description.sys.type',
   description___childMarkdownRemark___id = 'description.childMarkdownRemark.id',
   description___childMarkdownRemark___frontmatter___title = 'description.childMarkdownRemark.frontmatter.title',
   description___childMarkdownRemark___excerpt = 'description.childMarkdownRemark.excerpt',
@@ -1348,6 +1386,7 @@ enum ContentfulPostFieldsEnum {
   body___internal___owner = 'body.internal.owner',
   body___internal___type = 'body.internal.type',
   body___body = 'body.body',
+  body___sys___type = 'body.sys.type',
   body___childMarkdownRemark___id = 'body.childMarkdownRemark.id',
   body___childMarkdownRemark___frontmatter___title = 'body.childMarkdownRemark.frontmatter.title',
   body___childMarkdownRemark___excerpt = 'body.childMarkdownRemark.excerpt',
@@ -1381,6 +1420,7 @@ enum ContentfulPostFieldsEnum {
   contentful_id = 'contentful_id',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
+  sys___type = 'sys.type',
   sys___revision = 'sys.revision',
   sys___contentType___sys___type = 'sys.contentType.sys.type',
   sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
@@ -1426,6 +1466,7 @@ enum ContentfulPostFieldsEnum {
   childContentfulPostDescriptionTextNode___internal___owner = 'childContentfulPostDescriptionTextNode.internal.owner',
   childContentfulPostDescriptionTextNode___internal___type = 'childContentfulPostDescriptionTextNode.internal.type',
   childContentfulPostDescriptionTextNode___description = 'childContentfulPostDescriptionTextNode.description',
+  childContentfulPostDescriptionTextNode___sys___type = 'childContentfulPostDescriptionTextNode.sys.type',
   childContentfulPostDescriptionTextNode___childMarkdownRemark___id = 'childContentfulPostDescriptionTextNode.childMarkdownRemark.id',
   childContentfulPostDescriptionTextNode___childMarkdownRemark___frontmatter___title = 'childContentfulPostDescriptionTextNode.childMarkdownRemark.frontmatter.title',
   childContentfulPostDescriptionTextNode___childMarkdownRemark___excerpt = 'childContentfulPostDescriptionTextNode.childMarkdownRemark.excerpt',
@@ -1494,6 +1535,7 @@ enum ContentfulPostFieldsEnum {
   childContentfulPostBodyTextNode___internal___owner = 'childContentfulPostBodyTextNode.internal.owner',
   childContentfulPostBodyTextNode___internal___type = 'childContentfulPostBodyTextNode.internal.type',
   childContentfulPostBodyTextNode___body = 'childContentfulPostBodyTextNode.body',
+  childContentfulPostBodyTextNode___sys___type = 'childContentfulPostBodyTextNode.sys.type',
   childContentfulPostBodyTextNode___childMarkdownRemark___id = 'childContentfulPostBodyTextNode.childMarkdownRemark.id',
   childContentfulPostBodyTextNode___childMarkdownRemark___frontmatter___title = 'childContentfulPostBodyTextNode.childMarkdownRemark.frontmatter.title',
   childContentfulPostBodyTextNode___childMarkdownRemark___excerpt = 'childContentfulPostBodyTextNode.childMarkdownRemark.excerpt',
@@ -1560,6 +1602,7 @@ type ContentfulPostSortInput = {
 };
 
 type ContentfulPostSys = {
+  readonly type: Maybe<Scalars['String']>;
   readonly revision: Maybe<Scalars['Int']>;
   readonly contentType: Maybe<ContentfulPostSysContentType>;
 };
@@ -1587,6 +1630,7 @@ type ContentfulPostSysContentTypeSysFilterInput = {
 };
 
 type ContentfulPostSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
   readonly revision: Maybe<IntQueryOperatorInput>;
   readonly contentType: Maybe<ContentfulPostSysContentTypeFilterInput>;
 };
@@ -2738,8 +2782,6 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -2845,6 +2887,7 @@ type Query_contentfulPostBodyTextNodeArgs = {
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
   body: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulPostBodyTextNodeSysFilterInput>;
   childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
@@ -2863,6 +2906,7 @@ type Query_contentfulPostDescriptionTextNodeArgs = {
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
   description: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulPostDescriptionTextNodeSysFilterInput>;
   childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
@@ -2912,6 +2956,7 @@ type Query_contentfulContentTypeArgs = {
   name: Maybe<StringQueryOperatorInput>;
   displayField: Maybe<StringQueryOperatorInput>;
   description: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<ContentfulContentTypeSysFilterInput>;
 };
 
 
@@ -2966,8 +3011,6 @@ type Query_allSitePluginArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Int']>;
-  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -3171,8 +3214,6 @@ enum SiteFieldsEnum {
   siteMetadata___title = 'siteMetadata.title',
   siteMetadata___description = 'siteMetadata.description',
   siteMetadata___author = 'siteMetadata.author',
-  port = 'port',
-  host = 'host',
   polyfill = 'polyfill',
   pathPrefix = 'pathPrefix',
   id = 'id',
@@ -3266,8 +3307,6 @@ enum SiteFieldsEnum {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<IntQueryOperatorInput>;
-  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -3546,6 +3585,11 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___plugins___name = 'pluginCreator.pluginOptions.plugins.name',
   pluginCreator___pluginOptions___plugins___version = 'pluginCreator.pluginOptions.plugins.version',
   pluginCreator___pluginOptions___plugins___pluginFilepath = 'pluginCreator.pluginOptions.plugins.pluginFilepath',
+  pluginCreator___pluginOptions___displayName = 'pluginCreator.pluginOptions.displayName',
+  pluginCreator___pluginOptions___fileName = 'pluginCreator.pluginOptions.fileName',
+  pluginCreator___pluginOptions___minify = 'pluginCreator.pluginOptions.minify',
+  pluginCreator___pluginOptions___transpileTemplateLiterals = 'pluginCreator.pluginOptions.transpileTemplateLiterals',
+  pluginCreator___pluginOptions___pure = 'pluginCreator.pluginOptions.pure',
   pluginCreator___pluginOptions___spaceId = 'pluginCreator.pluginOptions.spaceId',
   pluginCreator___pluginOptions___accessToken = 'pluginCreator.pluginOptions.accessToken',
   pluginCreator___pluginOptions___commonmark = 'pluginCreator.pluginOptions.commonmark',
@@ -3554,6 +3598,9 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___gfm = 'pluginCreator.pluginOptions.gfm',
   pluginCreator___pluginOptions___path = 'pluginCreator.pluginOptions.path',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
+  pluginCreator___pluginOptions___allExtensions = 'pluginCreator.pluginOptions.allExtensions',
+  pluginCreator___pluginOptions___isTSX = 'pluginCreator.pluginOptions.isTSX',
+  pluginCreator___pluginOptions___jsxPragma = 'pluginCreator.pluginOptions.jsxPragma',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
   pluginCreator___ssrAPIs = 'pluginCreator.ssrAPIs',
   pluginCreator___pluginFilepath = 'pluginCreator.pluginFilepath',
@@ -3745,6 +3792,11 @@ enum SitePluginFieldsEnum {
   pluginOptions___plugins___name = 'pluginOptions.plugins.name',
   pluginOptions___plugins___version = 'pluginOptions.plugins.version',
   pluginOptions___plugins___pluginFilepath = 'pluginOptions.plugins.pluginFilepath',
+  pluginOptions___displayName = 'pluginOptions.displayName',
+  pluginOptions___fileName = 'pluginOptions.fileName',
+  pluginOptions___minify = 'pluginOptions.minify',
+  pluginOptions___transpileTemplateLiterals = 'pluginOptions.transpileTemplateLiterals',
+  pluginOptions___pure = 'pluginOptions.pure',
   pluginOptions___spaceId = 'pluginOptions.spaceId',
   pluginOptions___accessToken = 'pluginOptions.accessToken',
   pluginOptions___commonmark = 'pluginOptions.commonmark',
@@ -3753,6 +3805,9 @@ enum SitePluginFieldsEnum {
   pluginOptions___gfm = 'pluginOptions.gfm',
   pluginOptions___path = 'pluginOptions.path',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
+  pluginOptions___allExtensions = 'pluginOptions.allExtensions',
+  pluginOptions___isTSX = 'pluginOptions.isTSX',
+  pluginOptions___jsxPragma = 'pluginOptions.jsxPragma',
   nodeAPIs = 'nodeAPIs',
   ssrAPIs = 'ssrAPIs',
   pluginFilepath = 'pluginFilepath',
@@ -3865,6 +3920,11 @@ type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 type SitePluginPluginOptions = {
   readonly plugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPlugins>>>;
+  readonly displayName: Maybe<Scalars['Boolean']>;
+  readonly fileName: Maybe<Scalars['Boolean']>;
+  readonly minify: Maybe<Scalars['Boolean']>;
+  readonly transpileTemplateLiterals: Maybe<Scalars['Boolean']>;
+  readonly pure: Maybe<Scalars['Boolean']>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly accessToken: Maybe<Scalars['String']>;
   readonly commonmark: Maybe<Scalars['Boolean']>;
@@ -3873,10 +3933,18 @@ type SitePluginPluginOptions = {
   readonly gfm: Maybe<Scalars['Boolean']>;
   readonly path: Maybe<Scalars['String']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
+  readonly allExtensions: Maybe<Scalars['Boolean']>;
+  readonly isTSX: Maybe<Scalars['Boolean']>;
+  readonly jsxPragma: Maybe<Scalars['String']>;
 };
 
 type SitePluginPluginOptionsFilterInput = {
   readonly plugins: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  readonly displayName: Maybe<BooleanQueryOperatorInput>;
+  readonly fileName: Maybe<BooleanQueryOperatorInput>;
+  readonly minify: Maybe<BooleanQueryOperatorInput>;
+  readonly transpileTemplateLiterals: Maybe<BooleanQueryOperatorInput>;
+  readonly pure: Maybe<BooleanQueryOperatorInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly accessToken: Maybe<StringQueryOperatorInput>;
   readonly commonmark: Maybe<BooleanQueryOperatorInput>;
@@ -3885,6 +3953,9 @@ type SitePluginPluginOptionsFilterInput = {
   readonly gfm: Maybe<BooleanQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
+  readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
+  readonly isTSX: Maybe<BooleanQueryOperatorInput>;
+  readonly jsxPragma: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsPlugins = {
@@ -3943,11 +4014,6 @@ type StringQueryOperatorInput = {
   readonly glob: Maybe<Scalars['String']>;
 };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
 type allContentfulPostQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3958,5 +4024,45 @@ type allContentfulPostQuery = { readonly allContentfulPost: { readonly edges: Re
           & { readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
         )>, readonly description: Maybe<Pick<contentfulPostDescriptionTextNode, 'description'>> }
       ) }> } };
+
+type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebpFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulResolutionsFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_tracedSVGFragment = Pick<ContentfulResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_withWebpFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulResolutions_withWebp_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulSizesFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_tracedSVGFragment = Pick<ContentfulSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebpFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebp_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 }
