@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Header from '../components/header';
-import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/themes/prism.css';
 
 type Props = {
   className?: string;
@@ -77,30 +77,48 @@ const Post = styled(Component)`
     overflow-wrap: break-word;
   }
 
-  & > main > section > div.post-body > pre {
-    overflow: scroll;
+  & > main > section > div.post-body > p,
+  & > main > section > div.post-body > ol li,
+  & > main > section > div.post-body > ul li {
+    margin-top: 0;
+    line-height: 1.9;
+  }
+
+  & > main > section > div.post-body pre {
+    margin: 20px 0;
   }
 
   & > main > section > div.post-body > p > img {
     width: 100%;
     height: auto;
+    margin: 20px 0;
   }
 
   & > main > section > div.post-body > h2 {
-    margin-top: 100px;
+    margin: 100px 0 20px;
   }
 
   & > main > section > div.post-body > h3 {
-    margin-top: 50px;
+    margin: 50px 0 20px;
+    font-size: 1.2em;
   }
 
   & > main > section > div.post-body > h4 {
-    margin-top: 25px;
+    margin: 40px 0 15px;
+    font-size: 1.1em;
   }
 
-  & > main > section > div.post-body > p > code {
-    color: #2d2d2d;
-    background: #ccc;
+  & > main > section > div.post-body > h5 {
+    margin: 30px 0 15px;
+    font-size: 1em;
+  }
+
+  & > main > section > div.post-body > p > code,
+  & > main > section > div.post-body > ol code,
+  & > main > section > div.post-body > ul code {
+    padding: 0.2em 0.4em;
+    color: #24292e;
+    background: rgba(27, 31, 35, 0.05);
   }
 `;
 
