@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 import Header from '../components/header';
 import 'prismjs/themes/prism.css';
 
-type Props = {
+export type Props = {
   className?: string;
   pageContext: {
     post: {
