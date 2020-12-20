@@ -13,7 +13,7 @@ export const Default = Template.bind({});
 Default.args = {
   post: {
     title: 'Netlifyでステージング環境を用意する',
-    updatedAt: '2020年10月25日',
+    createdAt: '2020年10月25日',
     image: {
       title: 'image title',
       file: {
@@ -26,5 +26,11 @@ Default.args = {
         '実機での表示確認など、ローカル環境では確認できない検証があるときはステージング環境が必要になります。NetlifyとGithubを連携させれば、PRを作るごとに自動でステージング環境が用意できます。',
     },
     slug: '20201025-netlify-staging-environment',
+    tags: [
+      {
+        title: 'Netlify',
+        slug: 'netlify',
+      },
+    ],
   },
 };
