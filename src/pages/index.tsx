@@ -8,7 +8,7 @@ const Index: FC<PageProps<GatsbyTypes.allContentfulPostQuery>> = ({ data }) => {
 
 export const query = graphql`
   query allContentfulPost {
-    allContentfulPost {
+    allContentfulPost(sort: { fields: createdAt, order: DESC }) {
       edges {
         node {
           title
@@ -22,7 +22,11 @@ export const query = graphql`
             description
           }
           slug
-          updatedAt(locale: "ja-JP", formatString: "YYYY年MM月DD日")
+          createdAt(locale: "ja-JP", formatString: "YYYY年MM月DD日")
+          tags {
+            title
+            slug
+          }
         }
       }
     }

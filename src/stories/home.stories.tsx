@@ -19,10 +19,11 @@ Default.args = {
         {
           node: {
             title: post?.title,
-            updatedAt: post?.updatedAt,
+            createdAt: post?.createdAt,
             image: post?.image,
             description: post?.description,
             slug: post?.slug,
+            tags: post?.tags,
           },
         },
       ],

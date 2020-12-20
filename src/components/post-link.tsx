@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export type Props = {
   className?: string;
-  post: Pick<GatsbyTypes.ContentfulPost, 'title' | 'slug' | 'updatedAt'> & {
+  post: Pick<GatsbyTypes.ContentfulPost, 'title' | 'slug' | 'createdAt'> & {
     readonly image: GatsbyTypes.Maybe<
       Pick<GatsbyTypes.ContentfulAsset, 'title'> & {
         readonly file: GatsbyTypes.Maybe<Pick<GatsbyTypes.ContentfulAssetFile, 'url'>>;
@@ -13,11 +13,14 @@ export type Props = {
     readonly description: GatsbyTypes.Maybe<
       Pick<GatsbyTypes.contentfulPostDescriptionTextNode, 'description'>
     >;
+    readonly tags: GatsbyTypes.Maybe<
+      ReadonlyArray<GatsbyTypes.Maybe<Pick<GatsbyTypes.ContentfulTag, 'title' | 'slug'>>>
+    >;
   };
 };
 
 const Component: FC<Props> = ({ className, post }) => {
-  const { title, updatedAt, image } = post;
+  const { title, createdAt, image, tags } = post;
   const description = post.description?.description;
   const pageLink = `/post/${post.slug}`;
   return (
@@ -32,7 +35,12 @@ const Component: FC<Props> = ({ className, post }) => {
           <h2>{title}</h2>
         </Link>
         <p>{description}</p>
-        <time>{updatedAt}</time>
+        <ul>
+          {tags?.map((tag) => {
+            return <li key={tag?.slug}>{tag?.title ?? ''}</li>;
+          })}
+        </ul>
+        <time>{createdAt}</time>
       </section>
     </article>
   );
@@ -77,6 +85,20 @@ const PostLink = styled(Component)`
 
   & > time {
     color: #595959;
+  }
+
+  & > section > ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  & > section > ul > li {
+    padding: 0.2em 0.4em;
+    margin: 0 10px 10px 0;
+    color: #24292e;
+    list-style: none;
+    background: rgba(27, 31, 35, 0.05);
   }
 
   @media screen and (max-width: 575px) {

@@ -5,22 +5,7 @@ import PostLink from '../components/post-link';
 import SEO from '../components/seo';
 
 export type Props = {
-  data: {
-    readonly allContentfulPost: {
-      readonly edges: ReadonlyArray<{
-        readonly node: Pick<GatsbyTypes.ContentfulPost, 'title' | 'slug' | 'updatedAt'> & {
-          readonly image: GatsbyTypes.Maybe<
-            Pick<GatsbyTypes.ContentfulAsset, 'title'> & {
-              readonly file: GatsbyTypes.Maybe<Pick<GatsbyTypes.ContentfulAssetFile, 'url'>>;
-            }
-          >;
-          readonly description: GatsbyTypes.Maybe<
-            Pick<GatsbyTypes.contentfulPostDescriptionTextNode, 'description'>
-          >;
-        };
-      }>;
-    };
-  };
+  data: GatsbyTypes.allContentfulPostQuery;
 };
 
 const Home: FC<Props> = ({ data }) => {
